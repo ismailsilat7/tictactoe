@@ -4,10 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="./script.js" defer></script>
 </head>
 <body>
-    
+    <dialog id="dialog">
+        <form id="nameForm">
+            <fieldset>
+                <legend>Update Player Names</legend>
+                <div class="inputs">
+                    <label for="player1">Player 1 (X)</label>
+                    <input type="text" name="player1" id="player1" class="player1-label" required>
+                    <label for="player2">Player 2 (O)</label>
+                    <input type="text" name="player2" id="player2" class="player2-label" required>
+                </div>
+            </fieldset>
+            <div class="form-buttons">
+                <button type="button" id="cancelBtn">Cancel</button>
+                <button id="confirmBtn" type="submit">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+    <div class="start">
+        <h1>Tic Tac Toe</h1>
+        <form id="startForm">
+            <fieldset>
+                <legend>Enter Player Names</legend>
+                <div class="inputs">
+                    <label for="player1">Player 1 (X)</label>
+                    <input type="text" name="player1" id="player1-start" class="player1-label" required>
+                    <label for="player2">Player 2 (O)</label>
+                    <input type="text" name="player2" id="player2-start" class="player2-label" required>
+                </div>
+            </fieldset>
+            <div class="form-buttons">
+                <button id="startBtn" type="submit">Start Game</button>
+            </div>
+        </form>
+    </div>
+    <div class="main">
+        <div class="player1-card">
+            <div class="name"><div class="player1-name"></div></div>
+            <div class="edit">
+                <i class="fas fa-pen"></i>
+            </div>
+            <div class="player1-sign"></div>
+            <div class="player1-score"></div>
+        </div>
+        <div class="container">
+            <h1 class="head">Tic-Tac-Toe</h1>
+            <h2 class="versus"></h2>
+            <h3 class="turn"></h3>
+            <div class="board"></div>
+            <div class="buttons"> <button id="restartBtn" >Restart Game</button> <button id="resetBtn" >Reset Scores</button></div>
+        </div>
+        <div class="player2-card">
+            
+            <div class="name"><div class="player2-name"></div></div>
+            <div class="edit">
+                <i class="fas fa-pen"></i>
+            </div>
+            <div class="player2-sign"></div>
+            <div class="player2-score"></div>
+        </div>
+    </div>
+
+    <div class="announcement"></div>
+
 </body>
 </html>
