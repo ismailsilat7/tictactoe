@@ -1,0 +1,323 @@
+* {
+    transition: all 0.5s ease-in-out;
+}
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F6F8FC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333D52;
+}
+
+.start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.start h1 {
+    font-size: 45px;
+}
+
+.start .form-buttons {
+    justify-content: flex-end;
+}
+
+#startForm {
+    height: 60vh;
+}
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+/* Player Cards */
+.player1-card, .player2-card {
+    width: 200px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 170px 15px;
+    grid-auto-rows: 50px;
+    background: #E0E6F1;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #333D52;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    gap: 10px;
+}
+
+.edit {
+    width: 24px;
+    height: 24px;
+    background: #F43F5E;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease-in-out;
+}
+.edit i {
+    color: white;
+    font-size: 14px;
+}
+
+.edit:hover {
+    background: #E53935;
+}
+
+
+.player1-sign, .player2-sign {
+    font-size: 1.25rem;
+    margin-top: 10px;
+    grid-row-start: 2;
+    grid-column: span 2;
+}
+
+.player1-score, .player2-score {
+    font-size: 1.25rem;
+    margin-top: 5px;
+    font-weight: bold;
+    grid-row-start: 3;
+    grid-column: span 2;
+}
+
+/* Tic-Tac-Toe Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.head {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333D52;
+    margin-bottom: 10px;
+}
+
+.versus {
+    font-size: 1.2rem;
+    color: #F43F5E;
+}
+
+.turn {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.board {
+    display: grid;
+    width: 350px;
+    height: 350px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    padding: 5px;
+    background-color: #E0E6F1;
+    border-radius: 10px;
+}
+
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 2px solid #3B82F6;
+    background: #FFFFFF;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: #2563EB;
+}
+
+.cell:hover {
+    background: #FDE5A7;
+}
+
+
+/* Buttons */
+.buttons {
+    width: 350px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    background: #3B82F6;
+    color: white;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #2563EB;
+}
+
+/* Dialog Styling */
+dialog {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    width: 70vw;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+    color: #333D52;
+    top: 10vh;
+    left: 15vw;
+}
+
+::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#nameForm, #startForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#nameForm {
+    height: 80vh;
+}
+
+fieldset {
+    margin: 20px;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+legend {
+    font-weight: bold;
+    padding: 15px;
+    font-size: 25px;
+}
+
+.inputs {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+label {
+    display: block;
+    align-self: flex-start;
+    font-size: 18px;
+    margin: 5px;
+    font-weight: 600;
+}
+
+input {
+    border: solid 1px #3B82F6;
+    border-radius: 2px;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    padding: 5px;
+    align-self: flex-start;
+    transition: 0.3s ease-in-out;
+}
+
+input:focus {
+    border: solid 3px #F43F5E;
+    box-shadow: 0px 2px 20px 2px rgba(0, 0, 0, 0.1);
+}
+
+.form-buttons {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-buttons button {
+    padding: 6px 20px;
+    border-radius: 15px;
+    border: 1px solid #3B82F6;
+    background-color: #FACC15;
+    color: #333D52;
+    transition: 0.35s ease-in-out;
+}
+
+#confirmBtn:hover {
+    background-color: #2563EB;
+    color: white;
+}
+
+#cancelBtn:hover {
+    background-color: #E53935;
+    color: white;
+}
+
+#startBtn:hover {
+    background-color: #333D52;
+    color: #FACC15;;
+}
+
+.announcement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
