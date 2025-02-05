@@ -382,7 +382,9 @@ input:focus {
         grid-row: 3/4;
         grid-column: 1;
     }
-
+    legend {
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 550px) {
@@ -404,6 +406,10 @@ input:focus {
 
     button {
         font-size: 0.75rem;
+    }
+
+    legend {
+        font-size: 18px;
     }
 
 }
