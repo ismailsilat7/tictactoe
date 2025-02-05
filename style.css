@@ -1,3 +1,24 @@
+:root {
+    --color-background: #F2F5FA;
+    --color-text: #232C3A;
+    --color-primary: #4C83FF;
+    --color-primary-hover: #1E5CF3;
+    --color-accent: #FF3B5F;
+    --color-accent-hover: #E02040;
+    --color-card-background: #E8EEF7;
+    --color-button-background: #FFD700;
+    --color-button-text: #232C3A;
+    --color-button-hover: #1E5CF3;
+    --color-button-cancel-hover: #E02040;
+    --color-button-start-hover: #232C3A;
+    --color-button-start-text-hover: #FFD700;
+    --color-cell-border: #4C83FF;
+    --color-cell-hover: #FFF3B0;
+    --color-dialog-background: #FFFFFF;
+    --color-dialog-backdrop: rgba(0, 0, 0, 0.7);
+    --color-announcement-background: rgba(0, 0, 0, 0.8);
+}
+
 * {
     transition: all 0.5s ease-in-out;
 }
@@ -5,13 +26,13 @@
 /* General Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #F6F8FC;
+    background-color: var(--color-background);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    color: var(--color-text);
     margin: 0;
-    color: #333D52;
 }
 
 .start {
@@ -33,33 +54,39 @@ body {
     height: 60vh;
 }
 
-
+/* Responsive Grid Layout */
 .main {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     align-items: center;
+    justify-items: center;
     gap: 20px;
-    padding: 20px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: min(90vw, 1200px);
     display: none;
+    padding: 20px;
 }
 
 /* Player Cards */
 .player1-card, .player2-card {
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
     padding: 20px;
-    display: grid;
-    grid-template-columns: 170px 15px;
-    grid-auto-rows: 50px;
-    background: #E0E6F1;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    color: #333D52;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: var(--color-card-background);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    
+}
+
+.player1-card h2, .player2-card h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
 }
 
 .name {
@@ -71,10 +98,17 @@ body {
     gap: 10px;
 }
 
+.versus-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .edit {
     width: 24px;
     height: 24px;
-    background: #F43F5E;
+    background: var(--color-accent);
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -83,21 +117,25 @@ body {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
     transition: background 0.3s ease-in-out;
 }
+
+.versus {
+    font-size: 30px;
+    color: var(--color-accent);
+}
+
 .edit i {
     color: white;
     font-size: 14px;
 }
 
 .edit:hover {
-    background: #E53935;
+    background: var(--color-accent-hover);
 }
-
 
 .player1-sign, .player2-sign {
     font-size: 1.25rem;
     margin-top: 10px;
     grid-row-start: 2;
-    grid-column: span 2;
 }
 
 .player1-score, .player2-score {
@@ -105,7 +143,6 @@ body {
     margin-top: 5px;
     font-weight: bold;
     grid-row-start: 3;
-    grid-column: span 2;
 }
 
 /* Tic-Tac-Toe Container */
@@ -113,22 +150,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #FFFFFF;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .head {
     font-size: 2rem;
     font-weight: bold;
-    color: #333D52;
+    color: var(--color-text);
     margin-bottom: 10px;
-}
-
-.versus {
-    font-size: 1.2rem;
-    color: #F43F5E;
 }
 
 .turn {
@@ -139,16 +169,15 @@ body {
 
 .board {
     display: grid;
-    width: 350px;
-    height: 350px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 5px;
-    padding: 5px;
-    background-color: #E0E6F1;
+    width: min(90vw, 300px);
+    height: min(90vw, 300px);
+    gap: 8px;
+    background-color: var(--color-card-background);
     border-radius: 10px;
+    padding: 10px;
 }
-
 
 .cell {
     display: flex;
@@ -157,17 +186,16 @@ body {
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
-    border: 2px solid #3B82F6;
-    background: #FFFFFF;
+    border: 2px solid var(--color-cell-border);
+    background: var(--color-dialog-background);
     cursor: pointer;
     transition: background 0.3s;
-    color: #2563EB;
+    color: var(--color-primary);
 }
 
 .cell:hover {
-    background: #FDE5A7;
+    background: var(--color-cell-hover);
 }
-
 
 /* Buttons */
 .buttons {
@@ -184,28 +212,26 @@ button {
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    background: #3B82F6;
+    background: var(--color-primary);
     color: white;
     transition: background 0.3s;
 }
 
 button:hover {
-    background: #2563EB;
+    background: var(--color-primary-hover);
 }
 
 /* Dialog Styling */
 dialog {
-    background-color: #FFFFFF;
+    background-color: var(--color-dialog-background);
     border-radius: 10px;
-    width: 70vw;
+    width: 60vw;
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
-    color: #333D52;
-    top: 10vh;
-    left: 15vw;
+    color: var(--color-text);
 }
 
 ::backdrop {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--color-dialog-backdrop);
 }
 
 #nameForm, #startForm {
@@ -216,7 +242,7 @@ dialog {
 }
 
 #nameForm {
-    height: 80vh;
+    height: 60vh;
 }
 
 fieldset {
@@ -253,7 +279,7 @@ label {
 }
 
 input {
-    border: solid 1px #3B82F6;
+    border: solid 1px var(--color-primary);
     border-radius: 2px;
     outline: none;
     width: 100%;
@@ -264,7 +290,7 @@ input {
 }
 
 input:focus {
-    border: solid 3px #F43F5E;
+    border: solid 3px var(--color-accent);
     box-shadow: 0px 2px 20px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -278,25 +304,25 @@ input:focus {
 .form-buttons button {
     padding: 6px 20px;
     border-radius: 15px;
-    border: 1px solid #3B82F6;
-    background-color: #FACC15;
-    color: #333D52;
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-button-background);
+    color: var(--color-button-text);
     transition: 0.35s ease-in-out;
 }
 
 #confirmBtn:hover {
-    background-color: #2563EB;
+    background-color: var(--color-button-hover);
     color: white;
 }
 
 #cancelBtn:hover {
-    background-color: #E53935;
+    background-color: var(--color-button-cancel-hover);
     color: white;
 }
 
 #startBtn:hover {
-    background-color: #333D52;
-    color: #FACC15;;
+    background-color: var(--color-button-start-hover);
+    color: var(--color-button-start-text-hover);
 }
 
 .announcement {
@@ -313,11 +339,9 @@ input:focus {
     width: 100%;
     height: 100%;
     color: white;
-    background: rgba(0, 0, 0, 0.85);
-    border-radius: 10px;
+    background: var(--color-announcement-background);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     display: none;
     transition: opacity 0.5s ease-in-out;
 }
-
 
