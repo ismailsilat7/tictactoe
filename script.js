@@ -120,9 +120,7 @@ function gameController(name1, name2) {
                 player1.updateScore();
             } else if(over == 2) {
                 player2.updateScore();
-            } else if(over == 0) {
-                announceDraw();
-            } else {
+            } else if(over != 0) {
                 switchPlayerTurn();
             }
         } else {
@@ -265,18 +263,14 @@ function ScreenController(name1, name2) {
         } 
         if (game.getStatus() == -1) {
             let over = game.isOver();
-            if (over == 1 || over == 2) {
-                if(!announced) {
+            if (!announced) {
+                if (over == 1 || over == 2) {
                     announceWinner(over);
-                    announced = true;
-                }
-                updateCards();
-            }
-            else if(over == 0) {
-                if(!announced) {
+                    updateCards();
+                } else if (over == 0) {
                     announceDraw();
-                    announced = true;
                 }
+                announced = true;
             }
         }
         updateScreen();
@@ -296,8 +290,6 @@ function ScreenController(name1, name2) {
         let winner = (num == 1) ? game.player1 : game.player2;
         playerTurnDiv.textContent = `${winner.getName()} Won! 🎉`;
         displayAnnouncement(`${winner.getName()} Won! 🎉`);
-
-
     }
 
     const announceDraw = () => {
@@ -341,7 +333,8 @@ startForm.addEventListener('submit', (event)=> {
         alert("Please fill out all required fields in the form!");
     } else {
         startSection.style.display = 'none';
-        mainSection.style.display = 'flex';
+        startSection.textContent = '';
+        mainSection.style.display = 'grid';
 
         ScreenController(formData.player1Name, formData.player2Name);
     }
