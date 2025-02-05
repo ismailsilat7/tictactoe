@@ -345,3 +345,85 @@ input:focus {
     transition: opacity 0.5s ease-in-out;
 }
 
+@media (max-width: 980px) {
+    .main {
+        grid-template-columns: 1fr 300px;
+    }
+    .container {
+        grid-column: 1; 
+        grid-row: 1/3;
+    }
+    .player1-card {
+        align-self: flex-end;
+    }
+    .player2-card {
+        align-self: flex-start;
+    }
+    .player1-card {
+        grid-column: 2/3;
+    }
+    
+}
+
+@media (max-width: 768px) {
+
+    .main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .versus {
+        font-size: 25px;
+    }
+    
+    .container {
+        grid-column: span 2;
+    }
+    .player1-card {
+        grid-row: 3/4;
+        grid-column: 1;
+    }
+
+}
+
+@media (max-width: 550px) {
+    .main {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+    .player2-card {
+        grid-row: 4/5;
+    }
+
+    .player1-card, .player2-card {
+        max-width: 70vw;
+    }
+
+    .buttons, .board {
+        max-width: 80vw;
+    }
+
+    button {
+        font-size: 0.75rem;
+    }
+
+}
+
+@media (max-width : 420px) {
+    .player1-card, .player2-card {
+        max-width: 75vw;
+    }
+
+    .player1-card .name, .player2-card .name {
+        font-size: 1.25rem;
+    }
+
+    .player1-sign, .player2-sign {
+        font-size: 0.8rem;
+    }
+
+    .player1-score, .player2-score {
+        font-size: 0.8rem;
+    }
+}
+
+
